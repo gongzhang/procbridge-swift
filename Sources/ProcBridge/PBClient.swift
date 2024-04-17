@@ -19,6 +19,9 @@ public struct PBClient {
         self.queue = DispatchQueue(label: name)
     }
     
+    /// Send request to `PBServer` and receive response `JSON`.
+    ///
+    /// - Use `JSON(encode:)` and `JSON.decode(_:)` to convert to and from specific types.
     public func request(method: String?, payload: JSON) async throws -> JSON {
         try await withCheckedThrowingContinuation { continuation in
             request(method: method, payload: payload) { result in

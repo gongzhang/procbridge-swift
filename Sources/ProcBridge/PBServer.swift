@@ -11,6 +11,9 @@ import SwiftyJSON
 
 public class PBServer: @unchecked Sendable {
     
+    /// Handle client requests and return response `JSON`.
+    ///
+    /// - Use `JSON(encode:)` and `JSON.decode(_:)` to convert to and from specific types.
     public typealias Handler = (_ method: String?, _ payload: JSON) async throws -> JSON
     
     private let path: String
